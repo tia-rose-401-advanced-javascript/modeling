@@ -2,7 +2,7 @@
   "name": "api-server-solution",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./api-server/index.js",
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watchAll --verbose"
