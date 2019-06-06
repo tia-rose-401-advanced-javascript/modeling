@@ -7,9 +7,9 @@ Data Modeling
 Tia Rose
 
 ### Links and Resources
-* [submission PR](http://xyz.com)
+* [submission PR](https://github.com/tia-rose-401-advanced-javascript/modeling/pull/1)
 * [travis](http://xyz.com)
-* [back-end](http://xyz.com) (when applicable)
+* [back-end](https://dry-anchorage-50002.herokuapp.com)
 
 #### Documentation
 * [api docs](http://xyz.com) (API servers)
@@ -28,8 +28,8 @@ Usage Notes or examples
 
 ### Setup
 #### `.env` requirements
-* `PORT` - Port Number
-* `MONGODB_URI` - URL to the running mongo instance/db
+* `PORT` - 3000
+* `MONGODB_URI` - 'mongodb://localhost:27017/class-08'
 
 #### Running the app
 * `npm start`
@@ -40,6 +40,7 @@ Usage Notes or examples
   
 #### Tests
 * How do you run tests?
+npm test
 * What assertions were made?
 * What assertions need to be / should be made?
 
