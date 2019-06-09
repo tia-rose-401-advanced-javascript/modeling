@@ -1,14 +1,9 @@
 'use strict';
 
-const schema = require('./products-schema');
-
-const uuid = require('uuid/v4');
-
+const schema = require('./products-schema.js');
 
 class Products {
-
   constructor() {
-    this.database = [];
   }
 
   get(_id) {
@@ -28,10 +23,6 @@ class Products {
   delete(_id) {
     return schema.findByIdAndDelete(_id);
   }
-
-  sanitize(entry) {
-  }
-
 }
 
 module.exports = Products;

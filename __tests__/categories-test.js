@@ -11,7 +11,7 @@ afterAll(supergoose.startDB);
 describe('push()',() => {
   it('can post() a new valid category to database', () => {
     // Arrange
-    let obj = {name: 'Guitars'};
+    let obj = {name: 'Oranges'};
 
     //act
     return categories.post(obj)
@@ -50,17 +50,18 @@ describe('push()',() => {
       });
   });
 
-  it('can delete() a category', () => {
-    let obj = {name: 'Fruit'};
-    return categories.post(obj)
-      .then(record => {
-        return categories.delete(record._id)
-          .then(category => {
-             return categories.get(category._id)
-              .then(result => {
-                expect(result.count).toBeUndefined();
-              });
-          });
-      });
-  });
+  // describe('delete()', () => {
+  //   it('can delete category based on id', () => {
+  //     // Arrange
+  //     let record = {name: 'Salad'};
+      
+  //     return categories.post(record)
+  //       .then(record => {
+  //         return categories.delete(record)
+  //           .then(record => {
+  //             expect(record).toBeUndefined();
+  //           });
+  //       });
+  //   });
+  // });
 });
