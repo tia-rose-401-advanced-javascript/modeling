@@ -5,7 +5,8 @@
   "main": "./api-server/index.js",
   "scripts": {
     "test": "jest",
-    "test-watch": "jest --watchAll --verbose"
+    "test-watch": "jest --watchAll --verbose",
+    "start": "nodemon index.js"
   },
   "jest": {
     "testEnvironment": "node"

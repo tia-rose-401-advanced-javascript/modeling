@@ -8,12 +8,16 @@ const supergoose = require('./supergoose.js');
 beforeAll(supergoose.startDB);
 afterAll(supergoose.startDB);
 
-describe('Category Model', () => {
-  it('can post() a new category', () => {
-    let obj = {categories: 'Fruits'};
+describe('push()',() => {
+  it('can post() a new valid category to database', () => {
+    // Arrange
+    let obj = {name: 'Guitars'};
+
+    //act
     return categories.post(obj)
       .then(record => {
         Object.keys(obj).forEach(key => {
+          // Assert
           expect(record[key]).toEqual(obj[key]);
         });
       });
@@ -52,9 +56,9 @@ describe('Category Model', () => {
       .then(record => {
         return categories.delete(record._id)
           .then(category => {
-            categories.get(category._id)
-              .then(cat => {
-                expect(cat).toNotBe(obj);
+             return categories.get(category._id)
+              .then(result => {
+                expect(result.count).toBeUndefined();
               });
           });
       });

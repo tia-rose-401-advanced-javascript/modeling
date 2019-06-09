@@ -1,10 +1,11 @@
 'use strict';
 const schema = require('./categories-schema');
+const uuid = require('uuid/v4');
 
 class Categories {
 
   constructor(category) {
-    this.category = category;
+  this.category = category;
   }
 
   get(_id) {
