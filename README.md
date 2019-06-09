@@ -8,7 +8,8 @@ Tia Rose
 
 ### Links and Resources
 * [submission PR](https://github.com/tia-rose-401-advanced-javascript/modeling/pull/1)
-* [travis](http://xyz.com)
+* [travis](https://www.travis-ci.com/tia-rose-401-advanced-javascript/modeling)
+[![Build Status](https://www.travis-ci.com/tia-rose-401-advanced-javascript/modeling.svg?branch=master)](https://www.travis-ci.com/tia-rose-401-advanced-javascript/modeling)
 * [back-end](https://dry-anchorage-50002.herokuapp.com)
 
 #### Documentation
