@@ -1,31 +1,67 @@
 'use strict';
-const schema = require('./categories-schema');
+
 const uuid = require('uuid/v4');
 
-class Categories {
+const schema = {
+  id: {required: true},
+  name: {required: true}
+};
 
-  constructor(category) {
-  this.category = category;
+class Categories {
+  constructor() {
+    this.database = [];
   }
 
   get(_id) {
-    let queryObject = _id ? {_id} : {};
-    return schema.find(queryObject);
+    let response = _id ? this.database.filter(record => record.id === _id) : this.database;
+    return Promise.resolve(response);
   }
   
-  post(entry) {
-    let record = new schema(entry);
-    return record.save();
+  post(record) {
+    record.id = uuid();
+
+    let entry = this.sanitize(record);
+    if(!entry){
+      return Promise.reject('Invalid Team object provided');
+    }
+
+    this.database.push(entry);
+
+    return Promise.resolve(entry);
   }
 
   put(_id, record) {
-    return schema.findByIdAndUpdate(_id, record, {new:true});
+    let entry = this.sanitize(record);
+
+    if(!entry) return Promise.reject('bad entry given');
+
+    this.database = this.database.map(item => item.id === _id ? record : item);
+
+    return Promise.resolve(entry);
   }
 
   delete(_id) {
-    return schema.findByIdAndDelete(_id);
+    this.database = this.database.filter(record => record.id !== _id);
+    return Promise.resolve();
   }
 
+  sanitize(entry){
+    let valid = true;
+    let record = {};
+  
+    Object.keys(schema).forEach(field => {
+      if(schema[field].required){
+        if(entry[field]){
+          record[field] = entry[field];
+        }else{
+          valid = false;
+        }
+      }else{
+        record[field] = entry[field];
+      }
+    });
+    return valid ? record : undefined;
+  }
 }
 
 module.exports = Categories;
