@@ -5,6 +5,7 @@
   "main": "./api-server/index.js",
   "scripts": {
     "test": "jest",
+    "lint": "eslint \"api-server/*.js\"",
     "test-watch": "jest --watchAll --verbose",
     "start": "nodemon index.js"
   },
@@ -17,6 +18,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
+    "eslint": "^5.16.0",
     "express": "^4.17.1",
     "jest": "^23.6.0",
     "mongodb-memory-server": "^2.9.3",
