@@ -17,7 +17,7 @@
     "cors": "^2.8.5",
     "dotenv": "^6.2.0",
     "express": "^4.17.1",
-    "jest": "^23.6.0",
+    "jest": "^29.3.1",
     "mongodb-memory-server": "^2.9.3",
     "mongoose": "^5.5.13",
     "mongoose-schema-jsonschema": "^1.2.1",
